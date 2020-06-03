@@ -35,7 +35,9 @@ const Navbar = (props: NavProps) => (
   <Container>
     <Heading>DeskPro Codetest</Heading>
     {props.appData.map(({ path, linkTitle }) => (
-      <StyledLink to={path}>{linkTitle}</StyledLink>
+      <StyledLink key={path} to={path}>
+        {linkTitle}
+      </StyledLink>
     ))}
   </Container>
 )

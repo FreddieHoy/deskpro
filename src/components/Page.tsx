@@ -1,17 +1,29 @@
 import React from 'react'
+import Table from './Table'
 
-interface pageProps {
-  path: String
-  linkTitle: String
-  pageTitle: String
-  pageDescription: String
+interface PageProps {
+  path: string
+  linkTitle: string
+  pageTitle: string
+  pageDescription: string
+  table: TableType
 }
 
-const Page = (props: pageProps) => {
+interface TableType {
+  apiEndpoint: string
+  columns: Array<TableColumnType>
+}
+
+interface TableColumnType {
+  title: string
+}
+
+const Page = (props: PageProps) => {
   return (
     <div>
       <h4>{props.pageTitle}</h4>
       <p>{props.pageDescription}</p>
+      <Table table={props.table} />
     </div>
   )
 }

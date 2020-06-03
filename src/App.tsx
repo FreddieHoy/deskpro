@@ -7,20 +7,37 @@ import { getPages } from './GetPages'
 
 import './App.css'
 
+interface AppData {
+  path: string
+  linkTitle: string
+  pageTitle: string
+  pageDescription: string
+  table: TableType
+}
+
+interface TableType {
+  apiEndpoint: string
+  columns: Array<TableColumnType>
+}
+
+interface TableColumnType {
+  title: string
+}
+
 const App = () => {
-  const [appData, setAppData] = useState([])
+  const [appData, setAppData] = useState<Array<AppData> | null>(null)
 
   useEffect(() => {
-    const getPageData = async () => {
+    const getPagesData = async () => {
       const pageData = getPages()
       setAppData(await pageData)
     }
-    getPageData()
+    getPagesData()
   }, [])
 
   console.log(appData)
 
-  if (appData.length === 0)
+  if (!appData)
     return (
       <div>
         <h3>Loading...</h3>
@@ -31,8 +48,8 @@ const App = () => {
     <HashRouter>
       <NavBar appData={appData} />
       <Switch>
-        {appData.map((props) => (
-          <RoutedPage {...props} />
+        {appData.map((page) => (
+          <RoutedPage key={page.path} {...page} />
         ))}
       </Switch>
     </HashRouter>

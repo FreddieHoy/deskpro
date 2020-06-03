@@ -22,11 +22,21 @@ const StyledLink = styled(Link)`
   }
 `
 
-const Navbar = () => (
+interface NavProps {
+  appData: Array<dataType>
+}
+
+interface dataType {
+  path: string
+  linkTitle: string
+}
+
+const Navbar = (props: NavProps) => (
   <Container>
     <Heading>DeskPro Codetest</Heading>
-    <StyledLink to="/PageOne">PageOne</StyledLink>
-    <StyledLink to="/PageTwo">PageTwo</StyledLink>
+    {props.appData.map(({ path, linkTitle }) => (
+      <StyledLink to={path}>{linkTitle}</StyledLink>
+    ))}
   </Container>
 )
 

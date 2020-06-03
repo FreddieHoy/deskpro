@@ -1,21 +1,42 @@
-import React from 'react'
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { HashRouter, Switch } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
 
-import PageOne from './components/pages/PageOne'
-import PageTwo from './components/pages/PageTwo'
-import NavBar from './components/common/Navbar'
+import NavBar from './components/Navbar'
+import RoutedPage from './components/RoutedPage'
+import { getPages } from './GetPages'
+
 import './App.css'
 
-export const App = () => (
-  <div>
+const App = () => {
+  const [appData, setAppData] = useState([])
+
+  useEffect(() => {
+    const getPageData = async () => {
+      const pageData = getPages()
+      setAppData(await pageData)
+    }
+    getPageData()
+  }, [])
+
+  console.log(appData)
+
+  if (appData.length === 0)
+    return (
+      <div>
+        <h3>Loading...</h3>
+      </div>
+    )
+
+  return (
     <HashRouter>
-      <NavBar />
+      <NavBar appData={appData} />
       <Switch>
-        <Route path="/PageTwo" component={PageTwo} />
-        <Route path="/PageOne" component={PageOne} />
+        {appData.map((props) => (
+          <RoutedPage {...props} />
+        ))}
       </Switch>
     </HashRouter>
-  </div>
-)
+  )
+}
 
 export default App

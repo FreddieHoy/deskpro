@@ -10,12 +10,10 @@ const TableRow = styled.tr<StyledRowProps>`
   background-color: ${(props) => (props.index % 2 ? '#EBEBEB' : 'white')};
 `
 
-// tableData just object because fetched value types are unknown.
 interface TableEntriesProps {
   tableData: Array<object>
 }
 
-// Note object order could be a bug - Made assumption.
 const TableEntries = (props: TableEntriesProps) => {
   const { tableData } = props
   return (

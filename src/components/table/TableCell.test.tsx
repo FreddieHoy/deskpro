@@ -1,7 +1,6 @@
 import React from 'react'
 import TableCell from './TableCell'
 import { render } from '@testing-library/react'
-// import { mockAppData } from '../testingData'
 
 describe('TableCell', () => {
   it('should render the cell normally when given the type name', () => {

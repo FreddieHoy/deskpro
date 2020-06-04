@@ -2,6 +2,15 @@ import React from 'react'
 import EmailCell from './exampleCells/EmailCell'
 import IconCell from './exampleCells/IconCell'
 
+import styled from 'styled-components'
+
+const TableData = styled.td`
+  border: 1px solid black;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 10px;
+`
+
 interface CellProps {
   text: string
   type: string
@@ -13,18 +22,18 @@ const TableCell = (props: CellProps) => {
   switch (type) {
     case 'email':
       return (
-        <td>
+        <TableData>
           <EmailCell email={text} />
-        </td>
+        </TableData>
       )
     case 'icon':
       return (
-        <td>
+        <TableData>
           <IconCell alt={text} imageSrc={text} />
-        </td>
+        </TableData>
       )
     default:
-      return <td>{text}</td>
+      return <TableData>{text}</TableData>
   }
 }
 

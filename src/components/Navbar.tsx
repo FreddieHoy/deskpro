@@ -3,11 +3,15 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 const Container = styled.div`
-  display: flex;
   align-items: center;
 `
 const Heading = styled.h1`
   margin: 0 20px;
+`
+const NavContainer = styled.div`
+  display: flex;
+  padding: 20px 0;
+  border-bottom: 1px solid black;
 `
 
 const StyledLink = styled(Link)`
@@ -34,11 +38,13 @@ interface dataType {
 const Navbar = (props: NavProps) => (
   <Container>
     <Heading>DeskPro Codetest</Heading>
-    {props.appData.map(({ path, linkTitle }) => (
-      <StyledLink key={path} to={path}>
-        {linkTitle}
-      </StyledLink>
-    ))}
+    <NavContainer>
+      {props.appData.map(({ path, linkTitle }) => (
+        <StyledLink key={path} to={path}>
+          {linkTitle}
+        </StyledLink>
+      ))}
+    </NavContainer>
   </Container>
 )
 

@@ -1,5 +1,12 @@
 import React from 'react'
 import Table from './table/Table'
+import styled from 'styled-components'
+
+const Container = styled.div`
+  max-width: 800px;
+  text-align: center;
+  margin: 0 auto;
+`
 
 interface PageProps {
   path: string
@@ -20,11 +27,11 @@ interface TableColumnType {
 
 const Page = (props: PageProps) => {
   return (
-    <div>
-      <h4>{props.pageTitle}</h4>
+    <Container>
+      <h2>{props.pageTitle}</h2>
       <p>{props.pageDescription}</p>
       <Table table={props.table} />
-    </div>
+    </Container>
   )
 }
 

@@ -45,7 +45,8 @@ const appData = [
         { title: 'Email' },
         { title: 'Age' },
         { title: 'Height' },
-        { title: 'Profession' }
+        { title: 'Profession' },
+        { title: 'Address' }
       ]
     }
   }
@@ -103,14 +104,16 @@ const tableThreeData = [
     email: 'freddiehoy0@gamil.com',
     age: 25,
     height: 6.3,
-    profession: 'Software Engineer'
+    profession: 'Software Engineer',
+    address: '10 Long Road'
   },
   {
     name: 'Jeff',
     email: 'jeff@notarealemail.com',
     age: 30,
     height: 6,
-    profession: 'pro swimmer'
+    profession: 'pro swimmer',
+    address: '20 Small Avenue'
   }
 ]
 

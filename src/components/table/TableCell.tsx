@@ -38,5 +38,3 @@ const TableCell = (props: CellProps) => {
 }
 
 export default TableCell
-
-// Hash lookup. --

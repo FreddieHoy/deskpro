@@ -7,7 +7,7 @@ interface IconCellProps {
 
 const IconCell = (props: IconCellProps) => {
   const { alt, imageSrc } = props
-  return <img src={imageSrc} alt={alt} />
+  return <img src={imageSrc} alt={alt} data-testid="icon-element" />
 }
 
 export default IconCell

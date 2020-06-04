@@ -22,8 +22,8 @@ interface TableProps {
 }
 
 interface TableType {
-  columns: Array<ColumnProps>
   apiEndpoint: string
+  columns: Array<ColumnProps>
 }
 
 interface ColumnProps {

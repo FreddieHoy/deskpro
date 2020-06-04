@@ -6,7 +6,11 @@ interface EmailCellProps {
 
 const EmailCell = (props: EmailCellProps) => {
   const { email } = props
-  return <a href={`mailto:${email}`}>{email}</a>
+  return (
+    <a href={`mailto:${email}`} data-testid="email-element">
+      {email}
+    </a>
+  )
 }
 
 export default EmailCell

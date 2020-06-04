@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getTableData } from '../../FetchData'
 import TableEntries from './TableEntries'
+import { TableType } from '../RoutedPage'
 
 import styled from 'styled-components'
 
@@ -21,25 +22,17 @@ interface TableProps {
   table: TableType
 }
 
-interface TableType {
-  apiEndpoint: string
-  columns: Array<ColumnProps>
-}
-
-interface ColumnProps {
-  title: string
-}
-
 const Table = (props: TableProps) => {
   const [tableData, setTableData] = useState([])
+  const { table } = props
 
   useEffect(() => {
     const callTableData = async () => {
-      const tableData = getTableData(props.table.apiEndpoint)
+      const tableData = getTableData(table.apiEndpoint)
       setTableData(await tableData)
     }
     callTableData()
-  }, [props.table.apiEndpoint])
+  }, [table.apiEndpoint])
 
   if (tableData.length === 0)
     return (
@@ -52,7 +45,7 @@ const Table = (props: TableProps) => {
     <StyledTable>
       <thead>
         <tr>
-          {props.table.columns.map((column) => (
+          {table.columns.map((column) => (
             <TableHeader key={column.title}>{column.title}</TableHeader>
           ))}
         </tr>

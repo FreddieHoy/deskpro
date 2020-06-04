@@ -4,28 +4,12 @@ import React, { useEffect, useState } from 'react'
 import NavBar from './components/Navbar'
 import RoutedPage from './components/RoutedPage'
 import { getPages } from './FetchData'
+import { PageProps } from './components/RoutedPage'
 
 import './App.css'
 
-interface AppData {
-  path: string
-  linkTitle: string
-  pageTitle: string
-  pageDescription: string
-  table: TableType
-}
-
-interface TableType {
-  apiEndpoint: string
-  columns: Array<TableColumnType>
-}
-
-interface TableColumnType {
-  title: string
-}
-
 const App = () => {
-  const [appData, setAppData] = useState<Array<AppData> | null>(null)
+  const [appData, setAppData] = useState<Array<PageProps> | null>(null)
 
   useEffect(() => {
     const getPagesData = async () => {
@@ -55,7 +39,3 @@ const App = () => {
 }
 
 export default App
-
-// Enzyme Act wrap hooks - react test render.
-// React Testing Libary.
-// shallow passing childs props.

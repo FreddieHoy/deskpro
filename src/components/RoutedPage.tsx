@@ -2,7 +2,7 @@ import React from 'react'
 import Page from './Page'
 import { Route } from 'react-router-dom'
 
-interface RoutedPageProps {
+export interface PageProps {
   path: string
   linkTitle: string
   pageTitle: string
@@ -10,12 +10,12 @@ interface RoutedPageProps {
   table: TableType
 }
 
-interface TableType {
+export interface TableType {
   apiEndpoint: string
-  columns: Array<TableColumnType>
+  columns: Array<TableColumn>
 }
 
-interface TableColumnType {
+export interface TableColumn {
   title: string
 }
 
@@ -25,7 +25,7 @@ const RoutedPage = ({
   pageTitle,
   pageDescription,
   table
-}: RoutedPageProps) => (
+}: PageProps) => (
   <Route
     exact
     path={path}

@@ -1,6 +1,7 @@
 import React from 'react'
 import Table from './table/Table'
 import styled from 'styled-components'
+import { PageProps } from './RoutedPage'
 
 const Container = styled.div`
   max-width: 800px;
@@ -8,29 +9,13 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
-interface PageProps {
-  path: string
-  linkTitle: string
-  pageTitle: string
-  pageDescription: string
-  table: TableType
-}
-
-interface TableType {
-  apiEndpoint: string
-  columns: Array<TableColumnType>
-}
-
-interface TableColumnType {
-  title: string
-}
-
 const Page = (props: PageProps) => {
+  const { pageTitle, pageDescription, table } = props
   return (
     <Container>
-      <h2>{props.pageTitle}</h2>
-      <p>{props.pageDescription}</p>
-      <Table table={props.table} />
+      <h2>{pageTitle}</h2>
+      <p>{pageDescription}</p>
+      <Table table={table} />
     </Container>
   )
 }

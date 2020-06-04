@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const StyledTable = styled.table`
   border-collapse: collapse;
-  margin: 0 auto;
+  margin: 40px auto;
 `
 
 const TableHeader = styled.th`

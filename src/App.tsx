@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 
 import NavBar from './components/Navbar'
 import RoutedPage from './components/RoutedPage'
-import { getPages } from './GetPages'
+import { getPages } from './FetchData'
 
 import './App.css'
 
@@ -35,8 +35,6 @@ const App = () => {
     getPagesData()
   }, [])
 
-  console.log(appData)
-
   if (!appData)
     return (
       <div>
@@ -57,3 +55,7 @@ const App = () => {
 }
 
 export default App
+
+// Enzyme Act wrap hooks - react test render.
+// React Testing Libary.
+// shallow passing childs props.

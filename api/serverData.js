@@ -78,7 +78,7 @@ const serverData = {
       email: 'jeff@notarealemail.com',
       age: 30,
       height: 6,
-      address: '20 Small avenue'
+      address: '20 Small Avenue'
     }
   ],
   tableThreeData: [
@@ -100,3 +100,5 @@ const serverData = {
 }
 
 module.exports = serverData
+
+// ES5 named exports

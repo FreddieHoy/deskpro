@@ -1,5 +1,6 @@
 import React from 'react'
 import EmailCell from './exampleCells/EmailCell'
+import IconCell from './exampleCells/IconCell'
 
 interface CellProps {
   text: string
@@ -16,6 +17,12 @@ const TableCell = (props: CellProps) => {
           <EmailCell email={text} />
         </td>
       )
+    case 'icon':
+      return (
+        <td>
+          <IconCell alt={text} imageSrc={text} />
+        </td>
+      )
     default:
       return <td>{text}</td>
   }
@@ -23,5 +30,4 @@ const TableCell = (props: CellProps) => {
 
 export default TableCell
 
-// Icon
 // Hash lookup. --

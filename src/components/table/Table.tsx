@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { getTableData } from '../GetPages'
-import TableRows from './TableRows'
+import { getTableData } from '../../FetchData'
+import TableEntries from './TableEntries'
 
 interface TableProps {
   table: TableType
@@ -15,14 +15,6 @@ interface ColumnProps {
   title: string
 }
 
-// why does it not complain when other fields like address are not here for tables 2 and 3
-interface EntryData {
-  name: string
-  email: string
-  age: number
-  height: number
-}
-
 const Table = (props: TableProps) => {
   const [tableData, setTableData] = useState([])
 
@@ -33,8 +25,6 @@ const Table = (props: TableProps) => {
     }
     callTableData()
   }, [props.table.apiEndpoint])
-
-  console.log(tableData)
 
   if (tableData.length === 0)
     return (
@@ -52,7 +42,7 @@ const Table = (props: TableProps) => {
           ))}
         </tr>
       </thead>
-      <TableRows tableData={tableData} />
+      <TableEntries tableData={tableData} />
     </table>
   )
 }

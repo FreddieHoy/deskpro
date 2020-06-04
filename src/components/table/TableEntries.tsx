@@ -7,7 +7,7 @@ interface StyledRowProps {
 }
 
 const TableRow = styled.tr<StyledRowProps>`
-  background-color: ${(props) => (props.index ? '#EBEBEB' : 'white')};
+  background-color: ${(props) => (props.index % 2 ? '#EBEBEB' : 'white')};
 `
 
 // tableData just object because fetched value types are unknown.

@@ -1,4 +1,4 @@
-import { HashRouter, Switch } from 'react-router-dom'
+import { HashRouter, Switch, Redirect, Route } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 
 import NavBar from './components/Navbar'
@@ -30,6 +30,9 @@ const App = () => {
     <HashRouter>
       <NavBar appData={appData} />
       <Switch>
+        <Route exact path="/">
+          {appData && <Redirect to={appData[0].path} />}
+        </Route>
         {appData.map((page) => (
           <RoutedPage key={page.path} {...page} />
         ))}

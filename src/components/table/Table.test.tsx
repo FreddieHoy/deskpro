@@ -24,7 +24,7 @@ describe('Table', () => {
     })
   })
 
-  it('Title renders when data is given', async () => {
+  it('The table renders the correct information', async () => {
     mockedGetTableData.mockResolvedValue(mockTableData)
 
     const { getByText } = render(<Table table={mockTableProps} />)

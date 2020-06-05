@@ -1,5 +1,6 @@
 import React from 'react'
 import TableCell from './TableCell'
+import TableCellTestingWrapper from './TableCellTestingWrapper'
 import { render } from '@testing-library/react'
 
 describe('TableCell', () => {
@@ -9,7 +10,12 @@ describe('TableCell', () => {
       type: 'name'
     }
 
-    const { getByText } = render(<TableCell {...props} />)
+    // TableCell has to be wrapped by table, tbody and tr components otherwise React complains
+    const { getByText } = render(
+      <TableCellTestingWrapper>
+        <TableCell {...props} />
+      </TableCellTestingWrapper>
+    )
     expect(getByText('Fred')).toBeTruthy()
   })
   it('should render the cell with an email compoent when given the type email', () => {
@@ -18,7 +24,11 @@ describe('TableCell', () => {
       type: 'email'
     }
 
-    const { getByTestId } = render(<TableCell {...props} />)
+    const { getByTestId } = render(
+      <TableCellTestingWrapper>
+        <TableCell {...props} />
+      </TableCellTestingWrapper>
+    )
     expect(getByTestId('email-element')).toBeTruthy()
   })
   it('should render the cell with the icon component when given the type icon', () => {
@@ -27,7 +37,11 @@ describe('TableCell', () => {
       type: 'icon'
     }
 
-    const { getByTestId } = render(<TableCell {...props} />)
+    const { getByTestId } = render(
+      <TableCellTestingWrapper>
+        <TableCell {...props} />
+      </TableCellTestingWrapper>
+    )
     expect(getByTestId('icon-element')).toBeTruthy()
   })
 })

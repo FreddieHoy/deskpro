@@ -4,7 +4,7 @@ const appData = [
     linkTitle: 'Page One',
     pageTitle: 'Some Page One',
     pageDescription:
-      'We take revenge during goat-yoga class. A herd of ladies arrive each Saturday, and Friday night we gorge ourselves like horses before a race. We watch, waiting for one moment: table pose. When they’re on all fours, we snap into action: climb up on their backs, pose for a picture, then release the coffee bean waterfall right into their highlighted hair. The group screams! We feign ignorance. Who else can dominate humans this way and go unpunished? Serving goat cheese with wine tonight, Brittany? Ok. But remember you’re about to go into downward dog, and none of us are housebroken',
+      'A NUMBER of Flies were attracted to a jar of honey which had been overturned in a housekeeper\'s room, and placing their feet in it, ate greedily. Their feet, however, became so smeared with the honey that they could not use their wings, nor release themselves, and were suffocated. Just as they were expiring, they exclaimed, "O foolish creatures that we are, for the sake of a little pleasure we have destroyed ourselves."',
     table: {
       apiEndpoint: 'table-one',
       columns: [
